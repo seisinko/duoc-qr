@@ -16,19 +16,14 @@
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-h1 {
-  color: #3880ff; 
+.qr-container {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
 }
 
-p {
-  color: #333; 
-  margin-bottom: 20px;
-}
-
-.explore-button {
-  margin-top: 20px; 
-}
-
-.logout-button {
-  margin-top: 10px; 
+img {
+  width: 200px;
+  height: 200px;
+  border: 1px solid #ccc; 
 }

@@ -10,11 +10,17 @@
     <p>Esta es tu página de inicio. Explora las funcionalidades y disfruta de la experiencia.</p>
     
     <ion-button expand="full" class="explore-button">
-      Iniciar Sesion
+      Iniciar Sesión
     </ion-button>
     
-    <ion-button expand="full" color="light" class="logout-button">
+    
+    <ion-button expand="full" color="light" class="qr-button" (click)="showQR = !showQR">
       QR
     </ion-button>
+
+  
+    <div *ngIf="showQR" class="qr-container">
+      <img src="assets/qr-code-example.png" alt="QR Code">
+    </div>
   </div>
 </ion-content>
