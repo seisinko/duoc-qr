@@ -10,8 +10,13 @@
     <p>Por favor, escanea el código QR para continuar.</p>
 
     
-    <ion-button expand="full" (click)="generateQR()">
+    <ion-button expand="full" (click)="showQR = !showQR">
       QR
     </ion-button>
+
+    
+    <div *ngIf="showQR" class="qr-container">
+      <img src="assets/qr-code-example.png" alt="QR Code">
+    </div>
   </div>
 </ion-content>

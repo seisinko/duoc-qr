@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.page.scss'],
 })
 export class HomePage implements OnInit {
+  showQR: boolean = false; 
 
   constructor() {}
 
@@ -13,7 +14,6 @@ export class HomePage implements OnInit {
 
   
   generateQR() {
-    console.log('Botón de QR presionado');
-   
+    this.showQR = !this.showQR;
   }
 }
