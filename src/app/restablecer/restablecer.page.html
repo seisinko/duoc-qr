@@ -5,20 +5,24 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Restablecer Contraseña</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <form>
+  <form (ngSubmit)="restablecerContrasena()">
     <ion-item>
       <ion-label position="floating">Nombre de Usuario</ion-label>
-      <ion-input type="text" required></ion-input>
+      <ion-input type="text" [(ngModel)]="username" name="username" required></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Nueva Contraseña</ion-label>
+      <ion-input type="password" [(ngModel)]="newPassword" name="newPassword" required></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Confirmar Contraseña</ion-label>
+      <ion-input type="password" [(ngModel)]="confirmPassword" name="confirmPassword" required></ion-input>
     </ion-item>
 
     <ion-button expand="full" type="submit">
-      RECUPERAR
+      RESTABLECER
     </ion-button>
   </form>
 
@@ -30,3 +34,4 @@
     </ion-toolbar>
   </ion-footer>
 </ion-content>
+
