@@ -7,28 +7,49 @@ import { ToastController } from '@ionic/angular';
   styleUrls: ['./restablecer.page.scss'],
 })
 export class RestablecerPage implements OnInit {
-  email: string = ''; 
+  username: string = ''; 
+  newPassword: string = '';
+  confirmPassword: string = '';
 
   constructor(private toastController: ToastController) { }
 
   ngOnInit() { }
 
   async restablecerContrasena() {
-    if (this.email) {
-      
+    if (!this.username || !this.newPassword || !this.confirmPassword) {
       const toast = await this.toastController.create({
-        message: 'Se ha enviado un correo para restablecer tu contrasena.',
+        message: 'Por favor, completa todos los campos.',
         duration: 2000,
         position: 'top',
       });
       toast.present();
-    } else {
-      const toast = await this.toastController.create({
-        message: 'Por favor, ingresa un correo electronico.',
-        duration: 2000,
-        position: 'top',
-      });
-      toast.present();
+      return;
     }
+
+    if (this.newPassword !== this.confirmPassword) {
+      const toast = await this.toastController.create({
+        message: 'Las contraseñas no coinciden.',
+        duration: 2000,
+        position: 'top',
+      });
+      toast.present();
+      return;
+    }
+
+    
+    localStorage.setItem('password', this.newPassword);
+
+    const toast = await this.toastController.create({
+      message: 'Contraseña restablecida exitosamente.',
+      duration: 2000,
+      position: 'top',
+    });
+    toast.present();
+
+    
+    this.username = '';
+    this.newPassword = '';
+    this.confirmPassword = '';
   }
 }
+
