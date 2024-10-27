@@ -9,8 +9,8 @@ import { ToastController } from '@ionic/angular';
 })
 export class LoginPage implements OnInit {
   authType: string = 'login';  
-  loginData = { email: '', password: '' };
-  registerData = { username: '', email: '', password: '' };
+  loginData = { username: '', password: '' };
+  registerData = { username: '', password: '', confirmPassword: '' };
 
   constructor(private router: Router, private toastController: ToastController) {}
 
@@ -18,7 +18,7 @@ export class LoginPage implements OnInit {
 
   async onLogin() {
     
-    if (this.loginData.email === 'user@example.com' && this.loginData.password === 'password123') {
+    if (this.loginData.username === 'user123' && this.loginData.password === 'password123') {
       const toast = await this.toastController.create({
         message: 'Inicio de sesión exitoso.',
         duration: 2000,
@@ -28,7 +28,7 @@ export class LoginPage implements OnInit {
       this.router.navigate(['/home']); 
     } else {
       const toast = await this.toastController.create({
-        message: 'Correo o contraseña incorrectos.',
+        message: 'Nombre de usuario o contraseña incorrectos.',
         duration: 2000,
         position: 'top',
       });
@@ -38,7 +38,18 @@ export class LoginPage implements OnInit {
 
   async onRegister() {
     
-    if (this.registerData.username && this.registerData.email && this.registerData.password) {
+    if (this.registerData.password !== this.registerData.confirmPassword) {
+      const toast = await this.toastController.create({
+        message: 'Las contraseñas no coinciden.',
+        duration: 2000,
+        position: 'top',
+      });
+      toast.present();
+      return;
+    }
+
+    
+    if (this.registerData.username && this.registerData.password) {
       const toast = await this.toastController.create({
         message: 'Cuenta creada exitosamente.',
         duration: 2000,
@@ -56,3 +67,4 @@ export class LoginPage implements OnInit {
     }
   }
 }
+
