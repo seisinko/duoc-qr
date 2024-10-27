@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { NotFoundComponent } from './not-found/not-found.component'; // Asegúrate de importar el componente NotFound
 
 const routes: Routes = [
   {
@@ -9,17 +10,20 @@ const routes: Routes = [
   },
   {
     path: 'home',
-    loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
+    loadChildren: () => import('./home/home.module').then(m => m.HomePageModule)
   },
   {
     path: 'login',
-    loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
+    loadChildren: () => import('./login/login.module').then(m => m.LoginPageModule)
   },
   {
     path: 'restablecer',
-    loadChildren: () => import('./restablecer/restablecer.module').then( m => m.RestablecerPageModule)
+    loadChildren: () => import('./restablecer/restablecer.module').then(m => m.RestablecerPageModule)
   },
-
+  {
+    path: '**', // Ruta para manejar errores 404
+    component: NotFoundComponent // Reemplaza con el componente NotFound
+  }
 ];
 
 @NgModule({
