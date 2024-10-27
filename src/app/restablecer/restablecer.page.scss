@@ -1,5 +1,5 @@
 ion-content {
-    --background: #f9f9f9; // Color de fondo
+    --background: #f9f9f9; 
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -7,22 +7,22 @@ ion-content {
   }
   
   form {
-    width: 90%; // Ancho del formulario
-    max-width: 400px; // Ancho máximo
-    margin: 20px auto; // Espaciado
-    padding: 20px; // Padding interno
-    background: white; // Fondo blanco
-    border-radius: 8px; // Bordes redondeados
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); // Sombra suave
+    width: 90%; 
+    max-width: 400px; 
+    margin: 20px auto; 
+    padding: 20px; 
+    background: white; 
+    border-radius: 8px; 
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); 
   }
   
   ion-item {
-    margin-bottom: 15px; // Espacio entre los elementos
+    margin-bottom: 15px; 
   }
   
   ion-button {
-    margin-top: 10px; // Espacio encima del botón
-    background: #3880ff; // Color de fondo del botón
-    color: white; // Color del texto del botón
+    margin-top: 10px; 
+    background: #3880ff; 
+    color: white; 
   }
   
