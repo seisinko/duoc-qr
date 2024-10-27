@@ -22,7 +22,8 @@
     </ion-item>
     <ion-item>
       <ion-label position="floating">Contraseña</ion-label>
-      <ion-input type="password" [(ngModel)]="loginData.password" name="loginPassword" required></ion-input>
+      <ion-input [type]="passwordTypeLogin" [(ngModel)]="loginData.password" name="loginPassword" required></ion-input>
+      <ion-icon [name]="passwordIconLogin" slot="end" (click)="togglePassword('login')"></ion-icon>
     </ion-item>
 
     <ion-button expand="full" type="submit">Iniciar Sesión</ion-button>
@@ -37,15 +38,18 @@
     </ion-item>
     <ion-item>
       <ion-label position="floating">Contraseña</ion-label>
-      <ion-input type="password" [(ngModel)]="registerData.password" name="registerPassword" required></ion-input>
+      <ion-input [type]="passwordTypeRegister" [(ngModel)]="registerData.password" name="registerPassword" required></ion-input>
+      <ion-icon [name]="passwordIconRegister" slot="end" (click)="togglePassword('register')"></ion-icon>
     </ion-item>
     <ion-item>
       <ion-label position="floating">Confirmar Contraseña</ion-label>
-      <ion-input type="password" [(ngModel)]="registerData.confirmPassword" name="confirmPassword" required></ion-input>
+      <ion-input [type]="passwordTypeConfirm" [(ngModel)]="registerData.confirmPassword" name="confirmPassword" required></ion-input>
+      <ion-icon [name]="passwordIconConfirm" slot="end" (click)="togglePassword('confirm')"></ion-icon>
     </ion-item>
 
     <ion-button expand="full" type="submit">Crear Cuenta</ion-button>
   </form>
 </ion-content>
+
 
 
