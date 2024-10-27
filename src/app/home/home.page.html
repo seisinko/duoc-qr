@@ -6,17 +6,7 @@
 
 <ion-content class="home-content">
   <div class="welcome-container">
-    <h1>¡Bienvenido a la App!</h1>
-    <p>Por favor, escanea el código QR para continuar.</p>
-
-    
-    <ion-button expand="full" (click)="showQR = !showQR">
-      QR
-    </ion-button>
-
-    
-    <div *ngIf="showQR" class="qr-container">
-      <img src="assets/qr-code-example.png" alt="QR Code">
-    </div>
+    <h1>¡Bienvenido {{ username }}!</h1> 
+    <p>Por favor, realiza las acciones necesarias.</p> 
   </div>
 </ion-content>

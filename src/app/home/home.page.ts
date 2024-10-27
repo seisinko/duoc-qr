@@ -6,14 +6,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.page.scss'],
 })
 export class HomePage implements OnInit {
-  showQR: boolean = false; 
+  username: string = ''; 
 
   constructor() {}
 
-  ngOnInit() {}
-
-  
-  generateQR() {
-    this.showQR = !this.showQR;
+  ngOnInit() {
+   
+    this.username = localStorage.getItem('username') || 'Invitado';
   }
 }
+
+
