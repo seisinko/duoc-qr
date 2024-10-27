@@ -12,12 +12,21 @@ export class LoginPage implements OnInit {
   loginData = { username: '', password: '' };
   registerData = { username: '', password: '', confirmPassword: '' };
 
+  
+  passwordTypeLogin: string = 'password';
+  passwordIconLogin: string = 'eye-off';
+
+  passwordTypeRegister: string = 'password';
+  passwordIconRegister: string = 'eye-off';
+
+  passwordTypeConfirm: string = 'password';
+  passwordIconConfirm: string = 'eye-off';
+
   constructor(private router: Router, private toastController: ToastController) {}
 
   ngOnInit() {}
 
   async onLogin() {
-    
     if (this.loginData.username === 'user123' && this.loginData.password === 'password123') {
       const toast = await this.toastController.create({
         message: 'Inicio de sesión exitoso.',
@@ -37,7 +46,6 @@ export class LoginPage implements OnInit {
   }
 
   async onRegister() {
-    
     if (this.registerData.password !== this.registerData.confirmPassword) {
       const toast = await this.toastController.create({
         message: 'Las contraseñas no coinciden.',
@@ -48,7 +56,6 @@ export class LoginPage implements OnInit {
       return;
     }
 
-    
     if (this.registerData.username && this.registerData.password) {
       const toast = await this.toastController.create({
         message: 'Cuenta creada exitosamente.',
@@ -66,5 +73,20 @@ export class LoginPage implements OnInit {
       toast.present();
     }
   }
+
+  
+  togglePassword(input: string) {
+    if (input === 'login') {
+      this.passwordTypeLogin = this.passwordTypeLogin === 'password' ? 'text' : 'password';
+      this.passwordIconLogin = this.passwordIconLogin === 'eye-off' ? 'eye' : 'eye-off';
+    } else if (input === 'register') {
+      this.passwordTypeRegister = this.passwordTypeRegister === 'password' ? 'text' : 'password';
+      this.passwordIconRegister = this.passwordIconRegister === 'eye-off' ? 'eye' : 'eye-off';
+    } else if (input === 'confirm') {
+      this.passwordTypeConfirm = this.passwordTypeConfirm === 'password' ? 'text' : 'password';
+      this.passwordIconConfirm = this.passwordIconConfirm === 'eye-off' ? 'eye' : 'eye-off';
+    }
+  }
 }
+
 
