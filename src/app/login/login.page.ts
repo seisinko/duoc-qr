@@ -12,7 +12,7 @@ export class LoginPage implements OnInit {
   loginData = { username: '', password: '' };
   registerData = { username: '', password: '', confirmPassword: '' };
 
-  
+ 
   passwordTypeLogin: string = 'password';
   passwordIconLogin: string = 'eye-off';
 
@@ -27,14 +27,19 @@ export class LoginPage implements OnInit {
   ngOnInit() {}
 
   async onLogin() {
-    if (this.loginData.username === 'user123' && this.loginData.password === 'password123') {
+  
+    const storedUsername = localStorage.getItem('username');
+    const storedPassword = localStorage.getItem('password');
+
+  
+    if (this.loginData.username === storedUsername && this.loginData.password === storedPassword) {
       const toast = await this.toastController.create({
         message: 'Inicio de sesión exitoso.',
         duration: 2000,
         position: 'top',
       });
       toast.present();
-      this.router.navigate(['/home']); 
+      this.router.navigate(['/home']);
     } else {
       const toast = await this.toastController.create({
         message: 'Nombre de usuario o contraseña incorrectos.',
@@ -57,6 +62,10 @@ export class LoginPage implements OnInit {
     }
 
     if (this.registerData.username && this.registerData.password) {
+    
+      localStorage.setItem('username', this.registerData.username);
+      localStorage.setItem('password', this.registerData.password);
+
       const toast = await this.toastController.create({
         message: 'Cuenta creada exitosamente.',
         duration: 2000,
@@ -74,7 +83,7 @@ export class LoginPage implements OnInit {
     }
   }
 
-  
+
   togglePassword(input: string) {
     if (input === 'login') {
       this.passwordTypeLogin = this.passwordTypeLogin === 'password' ? 'text' : 'password';
@@ -88,5 +97,6 @@ export class LoginPage implements OnInit {
     }
   }
 }
+
 
 
