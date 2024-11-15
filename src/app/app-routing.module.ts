@@ -23,6 +23,10 @@ const routes: Routes = [
   {
     path: '**', // Ruta para manejar errores 404
     component: NotFoundComponent // Reemplaza con el componente NotFound
+  },
+  {
+    path: 'registrapp',
+    loadChildren: () => import('./registrapp/registrapp.module').then( m => m.RegistrappPageModule)
   }
 ];
 
