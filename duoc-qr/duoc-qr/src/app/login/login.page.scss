@@ -1,0 +1,12 @@
+.login-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%; /* Asegura que ocupa toda la pantalla */
+  }
+  
+  .login-container {
+    width: 90%; /* Ajusta el ancho del contenido para móviles */
+    max-width: 400px; /* Limita el ancho máximo */
+  }
+  
